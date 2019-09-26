@@ -4,9 +4,7 @@ import com.hackathon.hackansm.dao.DrugDao;
 import com.hackathon.hackansm.model.Drug;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,8 +22,12 @@ public class DrugController {
     //Drugs/{id}
     @GetMapping(value = "Drugs/{id}")
     public Drug displayDrug(@PathVariable int id){
-        Drug drug = new Drug(id, new String("doliprane"), new String("douleurs et fièvre"));
-        return drug;
+        //Drug drug = new Drug(id, new String("doliprane"), new String("douleurs et fièvre"));
+        return drugDao.findById(id);
+    }
+    @PostMapping(value="/Drugs")
+    public void addDrug(@RequestBody Drug drug){
+        drugDao.save(drug);
     }
 }
 

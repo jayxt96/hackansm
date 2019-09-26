@@ -21,12 +21,18 @@ public class DrugDaoImpl implements DrugDao{
 
     @Override
     public Drug findById(int id) {
+        for (Drug drug : drugs) {
+            if(drug.getId()==id){
+                return drug;
+            }
+        }
+
         return null;
     }
 
     @Override
     public Drug save(Drug drug) {
-
-        return null;
+        drugs.add(drug);
+        return drug;
     }
 }

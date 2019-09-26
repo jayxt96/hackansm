@@ -43,4 +43,7 @@ public class Drug {
         this.name = name;
         this.description = description;
     }
+
+    public Drug() {
+    }
 }
