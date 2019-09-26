@@ -1,11 +1,12 @@
 package com.hackathon.hackansm.dao;
 
 import com.hackathon.hackansm.model.Drug;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface DrugDao {
-    public List<Drug> findAll();
-    public Drug findById(int id);
-    public Drug save(Drug drug);
+@Repository
+public interface DrugDao extends JpaRepository<Drug, Integer> {
+    Drug findById(int id);
 }

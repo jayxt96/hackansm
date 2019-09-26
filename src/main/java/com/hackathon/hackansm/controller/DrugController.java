@@ -16,7 +16,7 @@ public class DrugController {
 
     @Autowired
     private DrugDao drugDao;
-    //Drugs
+    //Drugs -> select *
     @GetMapping(value = "Drugs")
     public List<Drug> listDrugs(){
         return drugDao.findAll();
